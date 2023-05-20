@@ -14,6 +14,10 @@ WCF_de_start_westernization = {
         add_journal_entry = {
             type = WCF_je_westernization
         }
+        add_modifier = {
+            name  = WCF_ig_westernization_1_modifier
+            years = -1
+        }
     }
     
     ai_chance = {

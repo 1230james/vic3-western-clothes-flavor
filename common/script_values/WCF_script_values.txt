@@ -107,13 +107,17 @@
         subtract = 1
     }
     
-    # GGGG interop - add 0-1% for adopting Full Dress, scaling with adoption rate
+    # GGGG interop - add 0-1% for adopting Full Dress, Helmets & Drab, and/or Caps & Coats, scaling with adoption rate
     if = {
         limit = {
             has_global_variable = GGGG_is_active
         }
         add = GGGG_sv_pm_usage_full_dress # Direct pass through because this returns [0, 1]
+        add = GGGG_sv_pm_usage_helmets_drab_caps_coats
     }
+    
+    # Disallow backtracking
+    min = 0
     
     # Add 10% for amicable or friendly relations with at least one westernized nation
     if = {
@@ -125,7 +129,4 @@
         }
         multiply = 1.10
     }
-    
-    # Disallow backtracking
-    min = 0
 }

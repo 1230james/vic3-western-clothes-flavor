@@ -8,7 +8,7 @@ WCF_ev.1 = {
     desc      = WCF_ev_1_desc
     flavor    = WCF_ev_1_flavor
 
-    duration = 3
+    duration = 1
 
     event_image = {
         video = "gfx/event_pictures/europenorthamerica_capitalists_meeting.bk2"

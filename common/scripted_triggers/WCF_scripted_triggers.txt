@@ -28,19 +28,36 @@ WCF_can_start_westernizing = {
             }
             
             # Most progressives must be influential
-            calc_true_if = {
-                amount >= 3
-                ig:ig_intelligentsia = {
-                    is_marginal = no
+            OR = {
+                calc_true_if = {
+                    amount >= 3
+                    ig:ig_intelligentsia = {
+                        is_marginal = no
+                    }
+                    ig:ig_industrialists = {
+                        is_marginal = no
+                    }
+                    ig:ig_armed_forces = {
+                        is_marginal = no
+                    }
+                    ig:ig_trade_unions = {
+                        is_marginal = no
+                    }
                 }
-                ig:ig_industrialists = {
-                    is_marginal = no
-                }
-                ig:ig_armed_forces = {
-                    is_marginal = no
-                }
-                ig:ig_trade_unions = {
-                    is_marginal = no
+                calc_true_if = {
+                    amount >= 3
+                    ig:ig_landowners = {
+                        is_marginal = yes
+                    }
+                    ig:ig_devout = {
+                        is_marginal = yes
+                    }
+                    ig:ig_rural_folk = {
+                        is_marginal = yes
+                    }
+                    ig:ig_petty_bourgeoisie = {
+                        is_marginal = yes
+                    }
                 }
             }
             
@@ -97,5 +114,12 @@ WCF_can_start_westernizing = {
                 }
             }
         }
+    }
+}
+
+WCF_is_character_westernizable = {
+    NOR = { # AWC does not westernize devout & rural folk
+        interest_group = { is_interest_group_type = ig_devout }
+        interest_group = { is_interest_group_type = ig_rural_folk }
     }
 }
