@@ -8,14 +8,14 @@ WCF_ev.1 = {
     desc      = WCF_ev_1_desc
     flavor    = WCF_ev_1_flavor
 
-    duration = 1
+    duration = 2
 
     event_image = {
         video = "gfx/event_pictures/europenorthamerica_capitalists_meeting.bk2"
     }
 
     on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-    on_opened_soundeffect  = "event:/SFX/Events/unspecific/world_fair"
+    on_opened_soundeffect  = "event:/SFX/Events/europenorthamerica/capitalists_meeting"
 
     icon = "gfx/interface/icons/event_icons/event_default.dds"
 
