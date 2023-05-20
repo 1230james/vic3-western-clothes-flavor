@@ -1,0 +1,5 @@
+﻿WCF_westernized_modifier = {
+    icon = modifier_statue_positive.dds
+    country_prestige_mult  = 0.10
+    country_influence_mult = 0.10
+}

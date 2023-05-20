@@ -1,0 +1,30 @@
+﻿snori_character_westernize_trigger = {
+	exists = scope:character
+	scope:character = {
+		owner = {
+			#has_modifier = snori_kor_clothes_modifier	
+            WCF_country_is_westernized = yes
+		}
+	}
+}
+
+
+snori_pop_westernize_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		owner = {
+			#has_modifier = snori_kor_clothes_modifier
+            WCF_country_is_westernized = yes
+		}
+	}
+}
+
+
+snori_korean_character_trigger = {
+	exists = scope:character
+	scope:character = {
+		owner = {
+			culture = cu:korean
+		}
+	}
+}

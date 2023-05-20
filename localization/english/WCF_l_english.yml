@@ -1,0 +1,23 @@
+﻿l_english:
+    # Journal entries
+    WCF_je_westernization:0        "Westernization"
+    WCF_je_westernization_reason:0 "If we are to become a serious power in this rapidly industrializing world, and prevent losing our sovereignty, our nation must have parity with the Westerners, whatever the cost may be. Part of this must include incorporating western customs into our society."
+    
+    # Decisions
+    WCF_de_start_westernization:0         "Begin Westernizing"
+    WCF_de_start_westernization_desc:0    "Begin the process of westernizing your country.\nUpon completion of westernization, most pops and characters will be wearing western clothes."
+    WCF_de_start_westernization_tooltip:0 "Begin Westernizing"
+    
+    # Tooltips
+    WCF_tt_overlord_westernized_sub:0 "[GetPlayer.GetOverlord.GetName] is #v westernized#!."
+    WCF_tt_overlord_westernized_ind:0 "The [concept_overlord] of [GetPlayer.GetName] is #v westernized#!."
+    
+    # Modifiers
+    WCF_westernized_modifier:0 "Westernized"
+    
+    # Events
+    WCF_ev_1_title:0  "Westernize!"
+    WCF_ev_1_desc:0   "After sufficiently long exposure to western technology, society, and culture, elements of their way of life have been integrated our way of life."
+    WCF_ev_1_flavor:0 ""The West leads the world in industry, academics, and culture. The world we once knew is collapsing. It's time to join the way of the great powers!""
+    WCF_ev_1_a:0      "Now we are ready to stand on the world stage!"
+    

@@ -1,0 +1,45 @@
+﻿WCF_je_westernization = {
+    icon = "gfx/interface/icons/event_icons/event_default.dds"
+    
+    immediate = {
+        ROOT = {
+            set_variable = {
+                name  = WCF_westernization_progress
+                value = 0
+            }
+            save_scope_as = target_country
+        }
+    }
+    
+    complete = {
+        hidden_trigger = {
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+    }
+    
+    on_complete = {
+        trigger_event = {
+            id = WCF_ev.1
+        }
+    }
+    
+    invalid = {
+        ROOT = {
+            WCF_country_is_westernized = yes
+        }
+    }
+    
+    current_value = {
+        value = ROOT.var:WCF_westernization_progress
+    }
+    
+    goal_add_value = {
+        value = 100
+    }
+    
+    progressbar = yes
+    
+    timeout = 0 # Never time out
+}
