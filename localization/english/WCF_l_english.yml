@@ -2,6 +2,7 @@
     # Journal entries
     WCF_je_westernization:0        "Westernization"
     WCF_je_westernization_reason:0 "If we are to become a serious power in this rapidly industrializing world, and prevent losing our sovereignty, our nation must have parity with the Westerners, whatever the cost may be. Part of this must include incorporating western customs into our society."
+    WCF_je_westernization_status:0 "Test"
     
     # Decisions
     WCF_de_start_westernization:0         "Begin Westernizing"
@@ -11,9 +12,10 @@
     # Tooltips
     WCF_tt_overlord_westernized_sub:0 "[GetPlayer.GetOverlord.GetName] is #v westernized#!."
     WCF_tt_overlord_westernized_ind:0 "The [concept_overlord] of [GetPlayer.GetName] is #v westernized#!."
+    WCF_tt_ruler_support:0            "[GetPlayer.GetRuler.GetFullName] supports any of the [Concept('concept_interest_group', 'Interest Groups')] below:"
     
     # Modifiers
-    WCF_westernized_modifier:0 "Westernized"
+    WCF_westernized_modifier:0 "Recently Westernized"
     
     # Events
     WCF_ev_1_title:0  "Westernize!"

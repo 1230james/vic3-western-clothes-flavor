@@ -7,7 +7,6 @@
                 name  = WCF_westernization_progress
                 value = 0
             }
-            save_scope_as = target_country
         }
     }
     
@@ -20,14 +19,34 @@
     }
     
     on_complete = {
+        ROOT = {
+            set_variable = {
+                name  = snori_clothes_decision_taken
+                value = yes
+            }
+        }
         trigger_event = {
             id = WCF_ev.1
         }
     }
     
     invalid = {
+        hidden_trigger = {
+            ROOT = {
+                WCF_country_is_westernized = yes
+            }
+        }
+    }
+    
+    #status_desc
+    
+    on_monthly_pulse = {
         ROOT = {
-            WCF_country_is_westernized = yes
+            # Update westernization progress
+            change_variable = {
+                name = WCF_westernization_progress
+                add  = WCF_sv_calculate_westernization_progress_delta
+            }
         }
     }
     

@@ -44,8 +44,21 @@ WCF_can_start_westernizing = {
                 }
             }
             
-            # Progressives must have at least 1 powerful IG
+            # Progressives must have ruler support or at least 1 powerful IG
             OR = {
+                custom_tooltip = {
+                    text  = WCF_tt_ruler_support
+                    ruler = {
+                        interest_group = {
+                            OR = {
+                                is_interest_group_type = ig_intelligentsia
+                                is_interest_group_type = ig_industrialists
+                                is_interest_group_type = ig_armed_forces
+                                is_interest_group_type = ig_trade_unions
+                            }
+                        }
+                    }
+                }
                 ig:ig_intelligentsia = {
                     is_powerful = yes
                 }
