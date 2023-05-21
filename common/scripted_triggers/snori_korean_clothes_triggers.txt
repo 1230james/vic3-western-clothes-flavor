@@ -1,0 +1,166 @@
+﻿snori_character_westernize_trigger = {
+	exists = scope:character
+	scope:character = {
+		owner = {
+			#has_modifier = snori_kor_clothes_modifier
+            OR = {
+                WCF_country_is_westernized = yes
+                
+                AND = {
+                    has_variable = WCF_westernization_progress
+                    OR = {
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 0
+                            scope:character = {
+                                OR = {
+                                    is_ruler = yes
+                                    is_heir  = yes
+                                }
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 5
+                            scope:character = {
+                                OR = {
+                                    has_role = general
+                                    has_role = admiral
+                                    interest_group = { is_interest_group_type = ig_armed_forces }
+                                }
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 10
+                            scope:character = {
+                                interest_group = {
+                                    OR = {
+                                        is_interest_group_type = ig_industrialists
+                                        is_interest_group_type = ig_intelligentsia
+                                    }
+                                }
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 30
+                            scope:character = {
+                                interest_group = { is_interest_group_type = ig_trade_unions }
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 60
+                            scope:character = {
+                                interest_group = { is_interest_group_type = ig_landowners }
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 90
+                            scope:character = {
+                                interest_group = { is_interest_group_type = ig_petty_bourgeoisie }
+                            }
+                        }
+                    }
+                } # AND
+            }
+		}
+	}
+}
+
+
+snori_pop_westernize_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		owner = {
+			#has_modifier = snori_kor_clothes_modifier
+            OR = {
+                WCF_country_is_westernized = yes
+                
+                AND = {
+                    has_variable = WCF_westernization_progress
+                    OR = {
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 5
+                            scope:pop = {
+                                OR = {
+                                    is_pop_type = officers
+                                    is_pop_type = bureaucrats
+                                }
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 10
+                            scope:pop = {
+                                OR = {
+                                    is_pop_type = soldiers
+                                    is_pop_type = clerks
+                                }
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 20
+                            scope:pop = {
+                                is_pop_type = capitalists
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 30
+                            scope:pop = {
+                                is_pop_type = academics
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 40
+                            scope:pop = {
+                                is_pop_type = engineers
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 50
+                            scope:pop = {
+                                is_pop_type = machinists
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 60
+                            scope:pop = {
+                                is_pop_type = shopkeepers
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 70
+                            scope:pop = {
+                                is_pop_type = laborers
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 80
+                            scope:pop = {
+                                is_pop_type = aristocrats
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 90
+                            scope:pop = {
+                                is_pop_type = farmers
+                            }
+                        }
+                        AND = {
+                            owner.var:WCF_westernization_progress >= 100
+                            scope:pop = {
+                                is_pop_type = peasants
+                            }
+                        }
+                    }
+                } # AND
+            }
+		}
+	}
+}
+
+
+snori_korean_character_trigger = {
+	exists = scope:character
+	scope:character = {
+		owner = {
+			culture = cu:korean
+		}
+	}
+}

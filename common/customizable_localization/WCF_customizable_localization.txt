@@ -1,0 +1,73 @@
+﻿WCF_cl_GGGG_bonus_reason = {
+    type = country
+    random_valid = no
+    
+    text = {
+        trigger = {
+            has_global_variable = GGGG_is_active
+        }
+        localization_key = WCF_GGGG_bonus_reason
+    }
+    text = {
+        trigger = {
+            NOT = {
+                has_global_variable = GGGG_is_active
+            }
+        }
+        localization_key = WCF_GGGG_bonus_reason_blank
+    }
+}
+
+WCF_cl_westernization_je_status_0 = {
+    type = country
+    random_valid = no
+    
+    text = {
+        trigger = {
+            NOT = {
+                exists = heir
+            }
+            ruler = {
+                WCF_is_character_westernizable = yes
+            }
+        }
+        localization_key = WCF_je_westernization_status_0_king
+    }
+    text = {
+        trigger = {
+            exists = heir
+            AND = {
+                ruler = {
+                    WCF_is_character_westernizable = yes
+                }
+                heir = {
+                    WCF_is_character_westernizable = yes
+                }
+            }
+            
+        }
+        localization_key = WCF_je_westernization_status_0_king_heir
+    }
+    text = {
+        trigger = {
+            exists = heir
+            AND = {
+                ruler = {
+                    WCF_is_character_westernizable = no
+                }
+                heir = {
+                    WCF_is_character_westernizable = yes
+                }
+            }
+            
+        }
+        localization_key = WCF_je_westernization_status_0_heir
+    }
+    text = {
+        trigger = {
+            always = yes
+        }
+        localization_key = WCF_je_westernization_status_0_neither
+    }
+    
+}

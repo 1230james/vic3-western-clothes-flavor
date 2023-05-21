@@ -1,0 +1,125 @@
+﻿WCF_country_is_westernized = {
+    OR = {
+        has_variable = snori_clothes_decision_taken
+        any_primary_culture = {
+            has_discrimination_trait = european_heritage
+        }
+    }
+}
+
+WCF_can_start_westernizing = {
+    OR = {
+        # Option A: Progressives have sufficient clout
+        AND = {
+            # Traditionalists cannot be powerful
+            AND = {
+                ig:ig_landowners = {
+                    is_powerful = no
+                }
+                ig:ig_devout = {
+                    is_powerful = no
+                }
+                ig:ig_rural_folk = {
+                    is_powerful = no
+                }
+                ig:ig_petty_bourgeoisie = {
+                    is_powerful = no
+                }
+            }
+            
+            # Most progressives must be influential
+            OR = {
+                calc_true_if = {
+                    amount >= 3
+                    ig:ig_intelligentsia = {
+                        is_marginal = no
+                    }
+                    ig:ig_industrialists = {
+                        is_marginal = no
+                    }
+                    ig:ig_armed_forces = {
+                        is_marginal = no
+                    }
+                    ig:ig_trade_unions = {
+                        is_marginal = no
+                    }
+                }
+                calc_true_if = {
+                    amount >= 3
+                    ig:ig_landowners = {
+                        is_marginal = yes
+                    }
+                    ig:ig_devout = {
+                        is_marginal = yes
+                    }
+                    ig:ig_rural_folk = {
+                        is_marginal = yes
+                    }
+                    ig:ig_petty_bourgeoisie = {
+                        is_marginal = yes
+                    }
+                }
+            }
+            
+            # Progressives must have ruler support or at least 1 powerful IG
+            OR = {
+                custom_tooltip = {
+                    text  = WCF_tt_ruler_support
+                    ruler = {
+                        interest_group = {
+                            OR = {
+                                is_interest_group_type = ig_intelligentsia
+                                is_interest_group_type = ig_industrialists
+                                is_interest_group_type = ig_armed_forces
+                                is_interest_group_type = ig_trade_unions
+                            }
+                        }
+                    }
+                }
+                ig:ig_intelligentsia = {
+                    is_powerful = yes
+                }
+                ig:ig_industrialists = {
+                    is_powerful = yes
+                }
+                ig:ig_armed_forces = {
+                    is_powerful = yes
+                }
+                ig:ig_trade_unions = {
+                    is_powerful = yes
+                }
+            }
+        }
+        
+        # Option B: Be a subject of a westernized nation
+        AND = {
+            is_subject = yes
+            trigger_if = {
+                limit = {
+                    is_subject = yes
+                }
+                custom_tooltip = {
+                    text = WCF_tt_overlord_westernized_sub
+                    overlord = {
+                        WCF_country_is_westernized = yes
+                    }
+                }
+            }
+            trigger_else = {
+                custom_tooltip = {
+                    text = WCF_tt_overlord_westernized_ind
+                    overlord = {
+                        WCF_country_is_westernized = yes
+                    }
+                }
+            }
+        }
+    }
+}
+
+WCF_is_character_westernizable = {
+    NOR = { # AWC does not westernize devout & rural folk
+        interest_group = { is_interest_group_type = ig_devout }
+        interest_group = { is_interest_group_type = ig_rural_folk }
+    }
+}

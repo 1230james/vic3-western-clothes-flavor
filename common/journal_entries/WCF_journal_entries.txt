@@ -1,0 +1,324 @@
+﻿WCF_je_westernization = {
+    icon = "gfx/interface/icons/event_icons/event_default.dds"
+    
+    immediate = {
+        ROOT = {
+            set_variable = {
+                name  = WCF_westernization_progress
+                value = 0
+            }
+            save_scope_as = this_country
+        }
+    }
+    
+    complete = {
+        hidden_trigger = {
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+    }
+    
+    on_complete = {
+        trigger_event = {
+            id = WCF_ev.1
+        }
+        ROOT = {
+            hidden_effect = {
+                if = {
+                    limit = {
+                        has_modifier = WCF_ig_westernization_1_modifier
+                    }
+                    remove_modifier = WCF_ig_westernization_1_modifier
+                }
+                if = {
+                    limit = {
+                        has_modifier = WCF_ig_westernization_2_modifier
+                    }
+                    remove_modifier = WCF_ig_westernization_2_modifier
+                }
+                if = {
+                    limit = {
+                        has_modifier = WCF_ig_westernization_3_modifier
+                    }
+                    remove_modifier = WCF_ig_westernization_3_modifier
+                }
+                if = {
+                    limit = {
+                        has_modifier = WCF_ig_westernization_4_modifier
+                    }
+                    remove_modifier = WCF_ig_westernization_4_modifier
+                }
+            }
+            set_variable = {
+                name  = snori_clothes_decision_taken
+                value = yes
+            }
+            add_modifier = {
+                name  = WCF_ig_westernized_modifier
+                years = 10
+                is_decaying = yes
+            }
+        }
+    }
+    
+    invalid = {
+        hidden_trigger = {
+            ROOT = {
+                WCF_country_is_westernized = yes
+            }
+        }
+    }
+    
+    on_invalid = {
+        ROOT = {
+            if = {
+                limit = {
+                    has_modifier = WCF_ig_westernization_1_modifier
+                }
+                remove_modifier = WCF_ig_westernization_1_modifier
+            }
+            if = {
+                limit = {
+                    has_modifier = WCF_ig_westernization_2_modifier
+                }
+                remove_modifier = WCF_ig_westernization_2_modifier
+            }
+            if = {
+                limit = {
+                    has_modifier = WCF_ig_westernization_3_modifier
+                }
+                remove_modifier = WCF_ig_westernization_3_modifier
+            }
+            if = {
+                limit = {
+                    has_modifier = WCF_ig_westernization_4_modifier
+                }
+                remove_modifier = WCF_ig_westernization_4_modifier
+            }
+        }
+    }
+    
+    status_desc = {
+        first_valid = {
+            riggered_desc = {
+                desc    = WCF_je_westernization_status_100
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 100
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_90
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 90
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_80
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 80
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_70
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 70
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_60
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 60
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_50
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 50
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_40
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 40
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_30
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 30
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_20
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 20
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_10
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 10
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_5
+                trigger = {
+                    ROOT.var:WCF_westernization_progress >= 5
+                }
+            }
+            triggered_desc = {
+                desc    = WCF_je_westernization_status_0
+                trigger = {
+                    always = yes
+                }
+            }
+        }
+    }
+    
+    on_monthly_pulse = {
+        effect = {
+            ROOT = {
+                # Update westernization progress
+                change_variable = {
+                    name = WCF_westernization_progress
+                    add  = WCF_sv_calculate_westernization_progress_delta
+                }
+                
+                # Update IG approval
+                if = {
+                    limit = {
+                        ROOT.var:WCF_westernization_progress < 25
+                        NOT = {
+                            has_modifier = WCF_ig_westernization_1_modifier
+                        }
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_2_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_2_modifier
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_3_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_3_modifier
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_4_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_4_modifier
+                    }
+                    add_modifier = {
+                        name  = WCF_ig_westernization_1_modifier
+                        years = -1
+                    }
+                }
+                else_if = {
+                    limit = {
+                        ROOT.var:WCF_westernization_progress < 50
+                        NOT = {
+                            has_modifier = WCF_ig_westernization_2_modifier
+                        }
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_1_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_1_modifier
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_3_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_3_modifier
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_4_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_4_modifier
+                    }
+                    add_modifier = {
+                        name  = WCF_ig_westernization_2_modifier
+                        years = -1
+                    }
+                }
+                else_if = {
+                    limit = {
+                        ROOT.var:WCF_westernization_progress < 75
+                        NOT = {
+                            has_modifier = WCF_ig_westernization_3_modifier
+                        }
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_1_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_1_modifier
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_2_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_2_modifier
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_4_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_4_modifier
+                    }
+                    add_modifier = {
+                        name  = WCF_ig_westernization_3_modifier
+                        years = -1
+                    }
+                }
+                else_if = {
+                    limit = {
+                        ROOT.var:WCF_westernization_progress <= 100
+                        NOT = {
+                            has_modifier = WCF_ig_westernization_4_modifier
+                        }
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_1_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_1_modifier
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_2_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_2_modifier
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = WCF_ig_westernization_3_modifier
+                        }
+                        remove_modifier = WCF_ig_westernization_3_modifier
+                    }
+                    add_modifier = {
+                        name  = WCF_ig_westernization_4_modifier
+                        years = -1
+                    }
+                }
+            }
+        }
+    }
+    
+    current_value = {
+        value = ROOT.var:WCF_westernization_progress
+    }
+    
+    goal_add_value = {
+        value = 100
+    }
+    
+    progressbar = yes
+    
+    timeout = 0 # Never time out
+}

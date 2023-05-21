@@ -1,0 +1,7 @@
+﻿GLOBAL = {
+    # Set WCF flag - for use in other mods for compatibility checks
+    set_global_variable = {
+        name  = WCF_is_active
+        value = yes
+    }
+}
