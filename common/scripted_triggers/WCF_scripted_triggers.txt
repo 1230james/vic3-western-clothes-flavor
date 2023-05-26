@@ -1,8 +1,27 @@
 ﻿WCF_country_is_westernized = {
     OR = {
+        # Westernized via JE
         has_variable = snori_clothes_decision_taken
-        any_primary_culture = {
-            has_discrimination_trait = european_heritage
+        
+        # Starts as westernized
+        AND = {
+            OR = {
+                # If European, westernized (duh)
+                any_primary_culture = {
+                    has_discrimination_trait = european_heritage
+                }
+                
+                # If Christian, westernized
+                religion = {
+                    has_discrimination_trait = christian
+                }
+            }
+            
+            # Unless if you're Tahiti or Ethiopia
+            NOR = {
+                THIS = c:PLY # Yes this is the tag for Tahiti
+                country_has_state_religion = rel:oriental_orthodox # No Ethiopians
+            }
         }
     }
 }
