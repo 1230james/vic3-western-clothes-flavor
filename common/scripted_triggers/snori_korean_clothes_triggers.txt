@@ -4,7 +4,8 @@
 		owner = {
 			#has_modifier = snori_kor_clothes_modifier
             OR = {
-                WCF_country_is_westernized = yes
+                has_variable = snori_clothes_decision_taken
+                # WCF_country_is_westernized = yes # DO NOT USE - we want to leave countries that already start off as westernized alone
                 
                 AND = {
                     has_variable = WCF_westernization_progress
@@ -71,7 +72,8 @@ snori_pop_westernize_trigger = {
 		owner = {
 			#has_modifier = snori_kor_clothes_modifier
             OR = {
-                WCF_country_is_westernized = yes
+                has_variable = snori_clothes_decision_taken
+                # WCF_country_is_westernized = yes # DO NOT USE - we want to leave countries that already start off as westernized alone
                 
                 AND = {
                     has_variable = WCF_westernization_progress
